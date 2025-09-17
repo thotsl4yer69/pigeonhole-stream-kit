@@ -61,7 +61,15 @@ A professional e-commerce website for selling preconfigured streaming devices wi
 
 ## 🚀 Deployment
 
-### Netlify Deployment
+### Quick Deployment with Script
+
+1. **Run the deployment setup script**
+   ```bash
+   ./deploy-setup.sh
+   ```
+   This script will guide you through the setup process and check your configuration.
+
+### Manual Deployment
 
 1. **Build the project**
    ```bash
@@ -74,9 +82,17 @@ A professional e-commerce website for selling preconfigured streaming devices wi
    - Set publish directory: `dist`
    - Add all environment variables in Netlify dashboard
 
-3. **Configure Stripe Webhook** (Optional)
-   - Set up webhook endpoint in Stripe Dashboard
-   - Point to `https://yoursite.netlify.app/.netlify/functions/create-checkout-session`
+3. **Environment Variables Required**:
+   - `VITE_STRIPE_PUBLISHABLE_KEY` - Stripe publishable key
+   - `STRIPE_SECRET_KEY` - Stripe secret key
+   - `VITE_STRIPE_LONE_PIGEON_PRICE` - Price ID for The Lone Pigeon
+   - `VITE_STRIPE_FLOCK_DEAL_PRICE` - Price ID for The Flock Deal
+   - `FRONTEND_URL` - Your Netlify site URL
+   - `TMDB_V3_KEY` - TMDB API key (optional)
+
+### 📖 Detailed Instructions
+
+For complete deployment instructions including API key setup, see [DEPLOYMENT.md](./DEPLOYMENT.md)
 
 ## 🎨 Design System
 
