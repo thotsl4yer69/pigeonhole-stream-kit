@@ -1,6 +1,6 @@
 steps:
 - name: node:20
-  id: detect-and-build-node
+  id: auto-detect-and-build
   entrypoint: bash
   args:
   - -lc
@@ -13,17 +13,15 @@ steps:
         corepack enable
         corepack prepare pnpm@latest --activate
         pnpm install --frozen-lockfile || pnpm install
-        if pnpm -s run | grep -qE '^
-*build
-'; then pnpm run build; else echo "No build script found"; fi
+        if node -e "const s=require('./package.json').scripts||{}; process.exit(s.build?0:1)" ; then pnpm run build; else echo "No build script found"; fi
       elif [ -f yarn.lock ]; then
         corepack enable
         corepack prepare yarn@stable --activate
         yarn install --frozen-lockfile || yarn install
-        if yarn run | grep -q 'build'; then yarn build; else echo "No build script found"; fi
+        if node -e "const s=require('./package.json').scripts||{}; process.exit(s.build?0:1)" ; then yarn build; else echo "No build script found"; fi
       else
         npm ci || npm install
-        if npm run | grep -q 'build'; then npm run build; else echo "No build script found"; fi
+        if node -e "const s=require('./package.json').scripts||{}; process.exit(s.build?0:1)" ; then npm run build; else echo "No build script found"; fi
       fi
     else
       echo "No package.json found. Nothing to build; completing successfully."
