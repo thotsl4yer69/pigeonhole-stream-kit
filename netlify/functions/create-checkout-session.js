@@ -5,10 +5,6 @@ exports.handler = async (event) => {
     const { deviceType } = JSON.parse(event.body || "{}");
     
     const priceMap = {
-      // New product SKUs
-      'lone-pigeon': process.env.VITE_STRIPE_LONE_PIGEON_PRICE,
-      'flock-deal': process.env.VITE_STRIPE_FLOCK_DEAL_PRICE,
-      // Legacy product SKUs (keeping for compatibility)
       firestick: process.env.VITE_STRIPE_BASIC_PRICE,
       firestick4k: process.env.VITE_STRIPE_STANDARD_PRICE,
       firecube: process.env.VITE_STRIPE_ENTERPRISE_PRICE,

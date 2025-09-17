@@ -11,41 +11,41 @@ interface Movie {
   release_date: string;
 }
 
-// Placeholder movies for when TMDB key is not available
-const placeholderMovies = [
-  {
-    id: 1,
-    title: "Popular Movie 1",
-    poster_path: "",
-    vote_average: 8.5,
-    release_date: "2024-01-01"
-  },
-  {
-    id: 2,
-    title: "Popular Movie 2", 
-    poster_path: "",
-    vote_average: 7.8,
-    release_date: "2024-02-01"
-  },
-  {
-    id: 3,
-    title: "Popular Movie 3",
-    poster_path: "",
-    vote_average: 8.2,
-    release_date: "2024-03-01"
-  },
-  {
-    id: 4,
-    title: "Popular Movie 4",
-    poster_path: "",
-    vote_average: 7.9,
-    release_date: "2024-04-01"
-  }
-];
-
 export const TMDBPreview = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState(false);
+
+  // Placeholder movies for when TMDB key is not available
+  const placeholderMovies = [
+    {
+      id: 1,
+      title: "Popular Movie 1",
+      poster_path: "",
+      vote_average: 8.5,
+      release_date: "2024-01-01"
+    },
+    {
+      id: 2,
+      title: "Popular Movie 2", 
+      poster_path: "",
+      vote_average: 7.8,
+      release_date: "2024-02-01"
+    },
+    {
+      id: 3,
+      title: "Popular Movie 3",
+      poster_path: "",
+      vote_average: 8.2,
+      release_date: "2024-03-01"
+    },
+    {
+      id: 4,
+      title: "Popular Movie 4",
+      poster_path: "",
+      vote_average: 7.9,
+      release_date: "2024-04-01"
+    }
+  ];
 
   useEffect(() => {
     const fetchTrendingMovies = async () => {
