@@ -1,0 +1,32 @@
+steps:
+- name: node:20
+  id: detect-and-build-node
+  entrypoint: bash
+  args:
+  - -lc
+  - |
+    set -euo pipefail
+    echo "Cloud Build: starting"
+    if [ -f package.json ]; then
+      echo "Detected Node.js project. Installing deps and building..."
+      if [ -f pnpm-lock.yaml ]; then
+        corepack enable
+        corepack prepare pnpm@latest --activate
+        pnpm install --frozen-lockfile || pnpm install
+        if pnpm -s run | grep -qE '^
+*build
+'; then pnpm run build; else echo "No build script found"; fi
+      elif [ -f yarn.lock ]; then
+        corepack enable
+        corepack prepare yarn@stable --activate
+        yarn install --frozen-lockfile || yarn install
+        if yarn run | grep -q 'build'; then yarn build; else echo "No build script found"; fi
+      else
+        npm ci || npm install
+        if npm run | grep -q 'build'; then npm run build; else echo "No build script found"; fi
+      fi
+    else
+      echo "No package.json found. Nothing to build; completing successfully."
+    fi
+options:
+  logging: CLOUD_LOGGING_ONLY
