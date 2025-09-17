@@ -37,9 +37,9 @@ export const BitcoinPayment = () => {
               <div className="w-16 h-16 bg-gradient-primary rounded-full mx-auto flex items-center justify-center mb-4">
                 <Bitcoin className="w-8 h-8 text-primary-foreground" />
               </div>
-              <CardTitle className="text-2xl">Maximum Privacy Payment</CardTitle>
+              <CardTitle className="text-2xl">Bitcoin Payments Accepted</CardTitle>
               <CardDescription>
-                Skip the banks. Pay direct with Bitcoin for true anonymity.
+                For maximum privacy, pay directly with Bitcoin
               </CardDescription>
             </CardHeader>
 

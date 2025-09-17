@@ -9,7 +9,7 @@ export interface Product {
 }
 
 export const brandData = {
-  brand: "The Pigeon by MZ1312",
+  brand: "Pigeonhole Streaming Devices by MZ1312",
   telegram: { 
     handle: "@MZ1312Support", 
     url: "https://t.me/MZ1312Support" 
@@ -17,29 +17,43 @@ export const brandData = {
   crypto: { 
     btc_address: "bc1prnj6qrraspeg2zs03caxg2fr3zculzennn969xujt0f6q9rjfkkslf2nax" 
   },
-  contact: {
-    email: "admin@mz1312.xx.kg",
-    protonmail: "mz1312@proton.me"
-  },
 };
 
 export const products: Product[] = [
   {
-    sku: "lone-pigeon",
-    name: "The Lone Pigeon",
-    model: "Single Unit",
-    price: "$150 AUD",
-    image_url: "/src/assets/firestick4k.jpg",
-    features: ["Custom MZ1312 Kodi Build", "12 Months Private Feed Access", "Multicultural Content Support", "Express Post Shipping (Vic)"],
-    stripe_price_id_env: "VITE_STRIPE_LONE_PIGEON_PRICE"
+    sku: "firestick",
+    name: "Pigeonhole Firestick",
+    model: "Standard",
+    price: "$79",
+    image_url: "/src/assets/firestick.jpg",
+    features: ["Kodi preconfigured", "Real‑Debrid compatible", "Surfshark ready"],
+    stripe_price_id_env: "VITE_STRIPE_BASIC_PRICE"
   },
   {
-    sku: "flock-deal",
-    name: "The Flock Deal",
-    model: "3+ Units",
-    price: "$130 AUD each",
+    sku: "firestick4k",
+    name: "Pigeonhole Firestick 4K",
+    model: "4K Edition", 
+    price: "$129",
+    image_url: "/src/assets/firestick4k.jpg",
+    features: ["4K streaming", "Advanced configuration", "Real‑Debrid compatible"],
+    stripe_price_id_env: "VITE_STRIPE_STANDARD_PRICE"
+  },
+  {
+    sku: "firecube",
+    name: "Pigeonhole Fire Cube",
+    model: "Pro Series",
+    price: "$199",
+    image_url: "/src/assets/firecube.jpg",
+    features: ["Voice control", "Premium bundle", "VPN + dashboard"],
+    stripe_price_id_env: "VITE_STRIPE_ENTERPRISE_PRICE"
+  },
+  {
+    sku: "pi",
+    name: "Pigeonhole Ultimate Pi",
+    model: "Raspberry Pi Edition",
+    price: "$299",
     image_url: "/src/assets/raspberry-pi.jpg",
-    features: ["Custom MZ1312 Kodi Build", "12 Months Private Feed Access", "Bulk Discount Applied", "Free Express Post Australia-wide"],
-    stripe_price_id_env: "VITE_STRIPE_FLOCK_DEAL_PRICE"
+    features: ["AI‑Kodi hybrid", "Offline assistants", "Private Telegram notifications"],
+    stripe_price_id_env: "VITE_STRIPE_GOV_PRICE"
   }
 ];
